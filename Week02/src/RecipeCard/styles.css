@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* font-family: "Acme", sans-serif;
+font-weight: 400;
+font-style: normal; */
+
+/* font-family: "Open Sans", sans-serif;
+font-optical-sizing: auto;
+font-weight: <weight>;
+font-style: normal;
+font-variation-settings:
+  "wdth" 100; */
+
+/* 48B2FF */
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.card {
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row; /*the default is row*/
+  justify-content: flex-start; /*the default is flex start*/
+  padding: 1rem; /*1 rem(responsive m units) is 16px*/
+  max-width: 40%;
+  margin: 1rem;;
+}
+
+.img {
+  width: 30%;
+  height: auto; /**if you have a width % it is good to just throw the auto height in there*/
+}
+
+.card_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card_lists {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin: 1.5rem;
+}
+
+.recipe_info {
+  margin-top: 1.5rem;
+}
+
+.recipe_title,
+.list_title {
+  /* we are not assigning a font size bc we want to reuse it for the other h# tags */
+  font-family: var(--ffacme);
+  font-weight: 400;
+
+}
+
+.recipe_title {
+  margin: 1rem;
+  font-size: 2.5rem;
+  border-bottom: 0.25rem solid var(--c-blue); 
+}
+
+.list_title {
+  margin: 0.5rem 0;
+  font-size: 1.625rem;
+  color: var(--c-blue);
+}
+
+.ingredients_list {
+  width: 40%;
+}
+
+.ingredients_list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.list_item {
+  display: flex;
+  margin-bottom: 0.75rem;
+  
+  /* this is like saying & when there is a span in here */
+  & span {
+    /* we give it a block display bc this is now a display item */
+    display: block;
+  }
+
+  & measure {
+    width: 25%;
+    margin-right: 2rem;
+  }
+
+}
+
+.instructions_list {
+  width: 50%;
+
+  & ol {
+    padding-left: 1.5rem;
+  }
+}
