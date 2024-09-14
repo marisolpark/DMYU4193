@@ -1,4 +1,4 @@
- //this useState is a hook buildi into react. To use them we need to import them implicitly
+import {useState} from 'react' //this useState is a hook buildi into react. To use them we need to import them implicitly
 // import React from 'react'
 // React.useState --> this is another way in whcih useState can be used
 import {ReactComponent as Heart} from '@material-design-icons/svg/filled/favorite.svg'
