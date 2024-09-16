@@ -11,7 +11,7 @@ export default function UserRating() {
     const [viewMinus, setViewMinus] = useState(true)
 
     const handlePlusClick = () => {
-        if (count < 4) {
+        if (count < 5) {
             setCount(count + 1)
             console.log("+1")
         }
@@ -52,21 +52,29 @@ export default function UserRating() {
 
     return (
         <div>
+            {count}
             <h3 className='list_title'>Want to rate the recipe?</h3>
             <div className='rating_heart_layout'>
                 {/* {count > 0 && viewMinus == true ? (<button onClick={handleMinusClick}>[-]</button> ) : (<p> hide minus </p>)} */}
                 {count > 0 ? (<Button visible onClick={handleMinusClick}>-</Button>) : (<Button invisible>-</Button>)}
                 <span className='rating_heart_layout'>
-                    {[...Array(count)].map((heart, i) => {
+                    {[...Array(count)].map((star, i) => {
                         return(
                             <span key="i">
                                 <StarIcon visible />
                             </span>
                         )
                     })}
-                    <StarIcon visible /> 
+                    {[...Array(5-count)].map((star, i) => {
+                        return(
+                            <span key="i">
+                                <StarIcon invisible />
+                            </span>
+                        )
+                    })}
+                    
                 </span>
-                {count < 4 ? (<Button visible onClick={handlePlusClick}>+</Button>) : (<Button invisible>+</Button>)}
+                {count < 5 ? (<Button visible onClick={handlePlusClick}>+</Button>) : (<Button invisible>+</Button>)}
                 {/* {count < 4 && viewPlus == true ? (<button onClick={handlePlusClick}>[+]</button>) : (<p>hide plus</p>)} */}
             </div>
         </div>

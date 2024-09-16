@@ -21,7 +21,6 @@ export default function StarIcon(props) {
     StarIcon.propTypes = {
         checkVariationValue: ({visible, invisible}) => {
             const count = 
-            // the !! makes the var come as a number
             Number(!!visible) + Number(!!invisible)
 
             if (count > 1){
