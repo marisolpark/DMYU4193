@@ -1,6 +1,9 @@
 import {useState} from 'react' 
 import {ReactComponent as Heart} from '@material-design-icons/svg/filled/favorite.svg'
+import StarIcon from '../StarIcon'
+// import {ReactComponent as Star} from '@material-design-icons/svg/filled/star.svg'
 import '../styles.css'
+import Button from '../Button'
 
 export default function UserRating() {
     const [count, setCount] = useState(0)
@@ -51,18 +54,20 @@ export default function UserRating() {
         <div>
             <h3 className='list_title'>Want to rate the recipe?</h3>
             <div className='rating_heart_layout'>
-                {count > 0 /*&& viewMinus == true*/ ? (<button onClick={handleMinusClick}>[-]</button> ) : (<p> {/* hide minus*/} </p>)}
+                {/* {count > 0 && viewMinus == true ? (<button onClick={handleMinusClick}>[-]</button> ) : (<p> hide minus </p>)} */}
+                {count > 0 ? (<Button visible onClick={handleMinusClick}>-</Button>) : (<Button invisible>-</Button>)}
                 <span className='rating_heart_layout'>
                     {[...Array(count)].map((heart, i) => {
                         return(
                             <span key="i">
-                                <Heart/>
+                                <StarIcon visible />
                             </span>
                         )
                     })}
-                    <Heart/>
+                    <StarIcon visible /> 
                 </span>
-                {count < 4 /*viewPlus == true*/ ? (<button onClick={handlePlusClick}>[+]</button>) : (<p>{/* hide plus*/} </p>)}
+                {count < 4 ? (<Button visible onClick={handlePlusClick}>+</Button>) : (<Button invisible>+</Button>)}
+                {/* {count < 4 && viewPlus == true ? (<button onClick={handlePlusClick}>[+]</button>) : (<p>hide plus</p>)} */}
             </div>
         </div>
     )
