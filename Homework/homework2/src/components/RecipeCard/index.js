@@ -1,12 +1,12 @@
 import React from 'react'
 import {RECIPE} from './recipe-data'
+import '../styles.css'
 import RecipeInfo from './RecipeInfo'
-import RecipeImg from './RecipeImg'
+import RecipeImg from '../RecipeCard/RecipeImg'
 import IngredientsList from './IngredientsList'
 import InstructionsList from './InstructionsList'
 import Card from './Card'
 import UserRating from './UserRating'
-import './styles.css'
 
 export default function RecipeCard() {
   return (

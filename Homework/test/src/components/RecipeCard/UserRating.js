@@ -1,6 +1,6 @@
 import {useState} from 'react' 
 import {ReactComponent as Heart} from '@material-design-icons/svg/filled/favorite.svg'
-import './styles.css' 
+import '../styles.css'
 
 export default function UserRating() {
     const [count, setCount] = useState(0)
@@ -50,18 +50,20 @@ export default function UserRating() {
     return (
         <div>
             <h3 className='list_title'>Want to rate the recipe?</h3>
-            {count > 0 /*&& viewMinus == true*/ ? (<button onClick={handleMinusClick}>[-]</button> ) : (<p> {/* hide minus*/} </p>)}
-            <span>
-                {[...Array(count)].map((heart, i) => {
-                    return(
-                        <span key="i">
-                            <Heart/>
-                        </span>
-                    )
-                })}
-                <Heart/>
-            </span>
-            {count < 4 /*viewPlus == true*/ ? (<button onClick={handlePlusClick}>[+]</button>) : (<p>{/* hide plus*/} </p>)}
+            <div className='rating_heart_layout'>
+                {count > 0 /*&& viewMinus == true*/ ? (<button onClick={handleMinusClick}>[-]</button> ) : (<p> {/* hide minus*/} </p>)}
+                <span className='rating_heart_layout'>
+                    {[...Array(count)].map((heart, i) => {
+                        return(
+                            <span key="i">
+                                <Heart/>
+                            </span>
+                        )
+                    })}
+                    <Heart/>
+                </span>
+                {count < 4 /*viewPlus == true*/ ? (<button onClick={handlePlusClick}>[+]</button>) : (<p>{/* hide plus*/} </p>)}
+            </div>
         </div>
     )
 }

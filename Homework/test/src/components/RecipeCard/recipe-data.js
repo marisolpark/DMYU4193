@@ -1,6 +1,6 @@
 export const RECIPE = {
   title: 'Buttermilk Pancakes',
-  imgSrc: require('../assets/pancake.png'),
+  imgSrc: require('../../assets/pancake.png'),
   description:
     'Some sort of lovely description about the best buttermilk pancakes in the world.',
   ingredients: [

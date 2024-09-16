@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import '../styles.css'
 
 export default function InstructionsList(props) {
   const {instructions} = props
