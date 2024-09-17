@@ -11,15 +11,17 @@ export default function Button(props) {
     } = props
 
     const classes = cx(otherProps.className, 'flex items-center px-2 py-0 rounded-lg', {
-        'bg-gradient-to-r from-cyan-500 to-blue-500 border-cyan-800 fill-white': visible,
-        'bg-transparent border-transparent fill-transparent': invisible
+        'bg-gradient-to-r from-cyan-500 to-blue-500 border-cyan-800 text-white': visible,
+        'bg-transparent border-transparent text-transparent': invisible
     })
 
     return <button {...otherProps} className={classes}>{children}</button>
 
     Button.propTypes = {
         checkVariationValue: ({visible, invisible}) => {
-            const count = Number(!!visible) + Number(!!invisible)
+            const count = 
+            // the !! makes the var come as a number
+            Number(!!visible) + Number(!!invisible)
 
             if (count > 1){
                 return new Error(

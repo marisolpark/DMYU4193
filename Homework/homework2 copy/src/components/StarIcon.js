@@ -5,6 +5,7 @@ import './styles.css'
 
 export default function StarIcon(props) {
     const {
+        // children, 
         visible,
         invisible,
         ...otherProps

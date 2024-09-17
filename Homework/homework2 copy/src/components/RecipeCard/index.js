@@ -1,15 +1,16 @@
 import React from 'react'
 import {RECIPE} from './recipe-data'
-import Card from './Card'
+import '../styles.css'
 import RecipeInfo from './RecipeInfo'
 import RecipeImg from '../RecipeCard/RecipeImg'
 import IngredientsList from './IngredientsList'
 import InstructionsList from './InstructionsList'
+import Card from './Card'
 import UserRating from './UserRating'
-import '../styles.css'
 
 export default function RecipeCard() {
   return (
+    //this is a components and it's children
     <Card>
       <RecipeImg imgSrc={RECIPE.imgSrc} />
       <div className='card_text'>

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles.css'
-
+// HW: Apply CSS styling
 export default function IngredientsList(props) {
   const {ingredients} = props
 
