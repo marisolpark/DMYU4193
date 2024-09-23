@@ -6,12 +6,12 @@ export default function PriceBox(props) {
 
     const renderedItems = items.map((item, index) => {
         return (
-            <div key={index} className="bg-gray-800 text-white rounded-lg m-5">
-                <div className="flex justify-center text-3xl bg-sky-600 rounded-t-lg p-3">
+            <div key={index} className="bg-gray-800 text-white rounded-lg m-2 w-80">
+                <div className="flex justify-center text-2xl bg-sky-600 rounded-t-lg p-3">
                     <div>{item.label}</div>
                 </div>
-                <div className='flex flex-col p-4 space-y-5 place-items-center'>
-                    <div>${item.price}/mo</div>
+                <div className='flex flex-col p-4 space-y-6 place-items-center'>
+                    <div className='text-5xl'>${item.price}/mo</div>
                     <div className='text-center'>
                         <div>{item.unsers}</div>
                         <div>{item.gb}</div>
@@ -28,6 +28,6 @@ export default function PriceBox(props) {
 
 
     return (
-        <div className='flex'>{renderedItems}</div>
+        <div className='flex flex-wrap'>{renderedItems}</div>
     )
 }
