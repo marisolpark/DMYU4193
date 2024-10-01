@@ -1,16 +1,16 @@
-// import {useState} from 'react'
 import Button from './Button'
 
 export default function PriceBox(props) {
     const {items} = props
 
     const renderedItems = items.map((item, index) => {
+
         return (
-            <div key={index} className="bg-gray-800 text-white rounded-lg m-2 w-80">
-                <div className="flex justify-center text-2xl bg-sky-600 rounded-t-lg p-3">
+            <div key={item.id} className="bg-gray-800 text-white m-2 w-80 rounded-lg">
+                <div className="flex justify-center bg-sky-600 p-3 text-2xl rounded-t-lg">
                     <div>{item.label}</div>
                 </div>
-                <div className='flex flex-col p-4 space-y-6 place-items-center'>
+                <div className='flex flex-col space-y-6 place-items-center p-4'>
                     <div className='text-5xl'>${item.price}/mo</div>
                     <div className='text-center'>
                         <div>{item.unsers}</div>
@@ -25,7 +25,6 @@ export default function PriceBox(props) {
             </div>
         )
       })
-
 
     return (
         <div className='flex flex-wrap'>{renderedItems}</div>
