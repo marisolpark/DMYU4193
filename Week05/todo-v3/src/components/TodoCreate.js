@@ -1,13 +1,22 @@
 import {useState} from 'react'
 
-const TodoCreate = (props) => {
+// const createTodo = (title) => {
+//   console.log('new todo with ', title)
+//   const updatedTodos = [
+//     ...todos,
+//     {id: Math.round(Math.random() * 9999999), title},
+//   ]
+//   setTodos(updatedTodos)
+// } --> ASK!! - is this what is passed as props here???
+
+const TodoCreate = (props) => { //ASK!! - what is TodoCreate recieving? what is the props
   // 2) pass in onCreate prop
   const {onCreate} = props
   // 3) create state for input
   const [title, setTitle] = useState('')
   // 4) add event handler for onChange
-  const handleChange = (event) => {
-    setTitle(event.target.value)
+  const handleChange = (event) => { //ASK!!- what is this event that it is taking?
+    setTitle(event.target.value) 
   }
   // 7) add onSubmit handler and pass in onCreate prop
   // don't forget we need to interrupt default form submission behavior!

@@ -1,0 +1,49 @@
+.formLayout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inputStyle {
+    width: 84%;
+    height:30px;
+    margin: 0px 10px 0px 10px;
+    border: transparent;
+    border-bottom: 2px solid #34A9F0;
+}
+
+.submitButton {
+    padding: 4px 6px 3px 6px;
+    background-color: #34A9F0;
+    border-color: transparent;
+}
+
+.otherButton {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.plusColor {
+    fill: aliceblue;
+}
+
+.otherIconColor {
+    fill: #34A9F0;
+}
+
+.todoLayout {
+    display: flex;
+   margin-bottom: 3%;
+   border-bottom: 1px solid #34A9F0;
+}
+
+.editDeleteLayout {
+    display: flex;
+
+}
+
+.itemWrap {
+   overflow-wrap: anywhere;
+
+}
+

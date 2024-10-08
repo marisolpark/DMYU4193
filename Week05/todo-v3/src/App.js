@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import axios from 'axios'
 import TodoCreate from './components/TodoCreate'
 import TodoList from './components/TodoList'
@@ -10,27 +10,27 @@ const App = () => {
     const response = await axios.get('http://localhost:3001/todos')
     setTodos(response.data)
   }
-  //   useEffect(() => {}) - no second argument: fires every time the component (re)renders
-  //   useEffect(() => {}, []) - []: fires the first time the component renders
-  //   useEffect(() => {}, [counter]) fire on first render and every time the variable counter changes
-  useEffect(() => {
-    fetchTodos()
-  }, [])
+
+  //calling it here would cause an infinite look
+  // fetchTodos()
+
+  // if [] is empty then the function will only run when it is mounted. 
+  // If the [] is not there at all it will call the function each time the page re-renders
+  //if there is smth in the [] then it will reder the first time it is mounted and every time the smth changes
+  useEffect(() => {fetchTodos()}, []) 
 
   const createTodo = async (title) => {
     const response = await axios.post('http://localhost:3001/todos', {title})
-    // always make a copy and add the new at the end
+    // always make a copy anbd add the new one at the end
     const updatedTodos = [...todos, response.data]
-    // always set with the copy so react knows to compare 2 different slots in its memory
+    // always set with the copy so react knows to compare to different slots on ots memory
     setTodos(updatedTodos)
   }
 
   const editTodoById = async (id, newTitle) => {
-    const response = await axios.put(`http://localhost:3001/todos/${id}`, {
-      title: newTitle,
-    })
+    const response = await axios.put(`http://localhost:3001/todos/${id}`, {title:newTitle})
 
-    const updatedTodos = todos.map((todo) => {
+    const updatedTodos = todos.map((todo) => { 
       if (todo.id === id) {
         return {...todo, ...response.data}
       }
@@ -43,18 +43,18 @@ const App = () => {
     await axios.delete(`http://localhost:3001/todos/${id}`)
 
     const updatedTodos = todos.filter((todo) => {
-      // return truthy keeps, falsey removes!
       return todo.id !== id
     })
 
     setTodos(updatedTodos)
   }
+
   return (
     <div>
-      <TodoCreate onCreate={createTodo} />
+      <TodoCreate onCreate={createTodo} /> 
       <TodoList todos={todos} onDelete={deleteTodoById} onEdit={editTodoById} />
     </div>
-  )
+  ) 
 }
 
 export default App

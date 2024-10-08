@@ -1,9 +1,8 @@
 import {useState} from 'react'
-const TodoEdit = (props) => {
-  //  FIRST PASS USE OnEDIT
-  // const {todo, onEdit} = props
+// import {ReactComponent as Update} from '@material-design-icons/svg/filled/update.svg'
 
-  // LAST use onSubmit instead after updating TodoItem
+const TodoEdit = (props) => {
+
   const {todo, onSubmit} = props
 
   const [title, setTitle] = useState(todo.title)
@@ -18,9 +17,9 @@ const TodoEdit = (props) => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <label>Title:</label>
+      <label>Update taks to: </label>
       <input type="text" onChange={handleChange} value={title} />
-      <button>Update</button>
+      <button className='submitButton'>Update</button>
     </form>
   )
 }

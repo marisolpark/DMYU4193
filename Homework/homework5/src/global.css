@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+/* font-family: "Kalam", cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap');
+/* font-family: "Edu AU VIC WA NT Guides", cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap');
+/* font-family: "Abril Fatface", serif; */
+
+body {
+    font-family: "Kalam", cursive;
+    font-size: medium;
+    background-color: #D9F0FE;
+    padding: 0 5% 0 5%;
+}
+
+label {
+    font-size: larger;
+    margin-top: 2%;
+
+}
+
+h1 {
+    font-size: x-large;
+    text-decoration: underline;
+    font-style: normal;
+    text-align: center;
+    margin-top: 5%;
+}
+
+button {
+    font-family: "Kalam", cursive;
+    border-radius: 50px;
+    border-color: transparent;
+    color: white;
+    margin: 2px;
+}
