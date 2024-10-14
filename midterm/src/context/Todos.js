@@ -10,7 +10,7 @@ function Provider({children}) {
     setTodos(response.data)
   }, [])
 
-  const createTodo = async (title) => {
+  const createTodo = async (title, urgencyTag) => {
     const response = await axios.post('http://localhost:3001/todos', {title})
     const updatedTodos = [...todos, response.data]
     setTodos(updatedTodos)
