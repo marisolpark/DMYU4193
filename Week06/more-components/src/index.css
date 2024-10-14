@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* this uses the nav active tag provided by NavLink to show which page ppl */
+nav a.active {
+    font-weight: 800;
+    text-decoration: underline;
+}

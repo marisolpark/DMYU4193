@@ -1,10 +1,10 @@
 import {useState} from 'react'
 import useTodoContext from '../hooks/use-todo-context'
 
-const TodoEdit = (props) => {
-  const {todo, onSubmit} = props
-  const [title, setTitle] = useState(todo.title) //this is a local state
-  const {editTodoById} = useTodoContext()
+const TodoCreate = () => {
+  const {createTodo} = useTodoContext()
+
+  const [title, setTitle] = useState('')
 
   const handleChange = (event) => {
     setTitle(event.target.value)
@@ -12,16 +12,23 @@ const TodoEdit = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    editTodoById((todo.id, title))
-    onSubmit()
+    createTodo(title)
+    setTitle('')
   }
+
   return (
     <form onSubmit={handleSubmit}>
+      <h1>Task Manager</h1>
       <label>Title:</label>
       <input type="text" onChange={handleChange} value={title} />
-      <button>Update</button>
+      <select>
+        <option>Critical</option>
+        <option>High priority</option>
+        <option>Moderate</option>
+      </select>
+      <button>Add Todo</button>
     </form>
   )
 }
 
-export default TodoEdit
+export default TodoCreate

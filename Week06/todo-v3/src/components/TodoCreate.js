@@ -1,8 +1,8 @@
-import {useState, useContext} from 'react'
-import TodoContext from '../context/Todos'
+import {useState} from 'react'
+import useTodoContext from '../hooks/use-todo-context'
 
 const TodoCreate = () => {
-  const {createTodo} = useContext(TodoContext)
+  const {createTodo} = useTodoContext()
 
   const [title, setTitle] = useState('')
 

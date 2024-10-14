@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "title": "placeholder todo here 0",
+      "id": 1
+    },
+    {
+      "title": "placeholder todo here 2",
+      "id": 2
+    },
+    {
+      "title": "hiiiii",
+      "id": 3
+    }
+  ]
+}

@@ -1,15 +1,23 @@
+import { clear } from '@testing-library/user-event/dist/clear'
 import axios from 'axios' //needed to fetch from the API
-import {createContext, useState} from 'react'
+// useCallback is a new react hook that we are learning. It is used specifically because we know that ths function 
+// is NOT going to change however the file that is referencing this does not know that 
+import {createContext, useState, useCallback} from 'react'
 const TodoContext = createContext() //create a todo components
-
 
 function Provider({children}) {
     const [todos, setTodos] = useState([])
 
-  const fetchTodos = async () => {
+// MUCH more common, wrap the function in useCallback inline
+// useCallback memoizes fetchTodos aka one copy in memory and we always reference the same slot in the computers 
+// memory. So it should never update unless there is something in the dependency array
+  const fetchTodos = useCallback(async () => {
     const response = await axios.get('http://localhost:3001/todos')
     setTodos(response.data)
-  }
+  }, [])
+
+// not usually done in production but probably more clear
+//   const stableFetchTodos = useCallback(fetchTodos, [])
 
   const createTodo = async (title) => {
     const response = await axios.post('http://localhost:3001/todos', {title})

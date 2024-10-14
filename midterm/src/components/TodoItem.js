@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import {useState} from 'react'
 import useTodoContext from '../hooks/use-todo-context'
 import TodoEdit from './TodoEdit'
+
 const TodoItem = (props) => {
   const {todo} = props
   const [showEdit, setShowEdit] = useState(false)
@@ -10,14 +11,11 @@ const TodoItem = (props) => {
     deleteTodoById(todo.id)
   }
 
-  // we need the handle edit bc it is our local state that tells the component if it shows or hides
   const handleEdit = () => {
     setShowEdit(!showEdit)
   }
 
   const handleSubmit = () => {
-    // we no longer need onEdit here. The editTodo component can directly access edityById from context
-    // handle submit no longer needs the parameters to edit
     setShowEdit(false)
   }
 

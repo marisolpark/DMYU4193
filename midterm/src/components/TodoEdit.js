@@ -3,7 +3,7 @@ import useTodoContext from '../hooks/use-todo-context'
 
 const TodoEdit = (props) => {
   const {todo, onSubmit} = props
-  const [title, setTitle] = useState(todo.title) //this is a local state
+  const [title, setTitle] = useState(todo.title)
   const {editTodoById} = useTodoContext()
 
   const handleChange = (event) => {
@@ -12,7 +12,7 @@ const TodoEdit = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    editTodoById((todo.id, title))
+    editTodoById(todo.id, title)
     onSubmit()
   }
   return (
