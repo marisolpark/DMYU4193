@@ -17,8 +17,9 @@ const TodoCreate = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    createTodo(title)
+    createTodo(title, urgencyTag)
     setTitle('')
+    setUrgencyTag('Moderate')
   }
 
   return (

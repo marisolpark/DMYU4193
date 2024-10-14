@@ -20,12 +20,14 @@ const TodoItem = (props) => {
   }
 
   let content = <h3>{todo.title}</h3>
+  let tag = <h4>{todo.urgencyTag}</h4>
   if (showEdit) {
     content = <TodoEdit todo={todo} onSubmit={handleSubmit} />
   }
 
   return (
     <div>
+      {tag}
       {content}
       <button onClick={handleEdit}>Edit</button>
       <button onClick={handleDelete}>Delete</button>

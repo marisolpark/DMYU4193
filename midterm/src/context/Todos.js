@@ -11,14 +11,14 @@ function Provider({children}) {
   }, [])
 
   const createTodo = async (title, urgencyTag) => {
-    const response = await axios.post('http://localhost:3001/todos', {title})
+    const response = await axios.post('http://localhost:3001/todos', {title, urgencyTag})
     const updatedTodos = [...todos, response.data]
     setTodos(updatedTodos)
   }
 
-  const editTodoById = async (id, newTitle) => {
+  const editTodoById = async (id, newTitle, newUrgencyTag) => {
     const response = await axios.put(`http://localhost:3001/todos/${id}`, {
-      title: newTitle,
+      title: newTitle, urgencyTag: newUrgencyTag
     })
 
     const updatedTodos = todos.map((todo) => {
