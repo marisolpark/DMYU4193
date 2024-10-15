@@ -7,6 +7,12 @@ const TodoItem = (props) => {
   const [showEdit, setShowEdit] = useState(false)
   const {deleteTodoById} = useTodoContext()
 
+  const colorMap = {
+    Critical: 'bg-red-700',
+    Important: 'bg-yellow-500',
+    Moderate: 'bg-lime-700'
+  }
+
   const handleDelete = () => {
     deleteTodoById(todo.id)
   }
@@ -27,7 +33,7 @@ const TodoItem = (props) => {
 
   return (
     <div>
-      <div>{tag}</div>
+      <div className={colorMap[todo?.urgencyTag]}>{tag}</div>
       <div>{content}</div>
       <button onClick={handleEdit} className='border-2 border-black'>Edit</button>
       <button onClick={handleDelete} className='border-2 border-black'>Delete</button>
