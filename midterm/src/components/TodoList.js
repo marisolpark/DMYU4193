@@ -3,8 +3,8 @@ import TodoItem from './TodoItem'
 
 const TodoList = () => {
   const {todos} = useTodoContext()
-  const sortedTodos = todos.sort()
-  const renderedTodos = sortedTodos.map((todo) => (
+  console.log(todos)
+  const renderedTodos = todos.map((todo) => (
     <TodoItem key={todo.id} todo={todo} />
   ))
   return <div>{renderedTodos}</div>

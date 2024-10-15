@@ -16,19 +16,9 @@
       "id": 3
     },
     {
-      "title": "placeholder 4",
-      "urgencyTag": "Moderate",
-      "id": 4
-    },
-    {
       "title": "placeholder 5",
       "urgencyTag": "Critical",
       "id": 5
-    },
-    {
-      "title": "placeholder 6",
-      "urgencyTag": "Important",
-      "id": 6
     }
   ]
 }

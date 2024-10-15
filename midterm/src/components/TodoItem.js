@@ -27,10 +27,10 @@ const TodoItem = (props) => {
 
   return (
     <div>
-      {tag}
-      {content}
-      <button onClick={handleEdit}>Edit</button>
-      <button onClick={handleDelete}>Delete</button>
+      <div>{tag}</div>
+      <div>{content}</div>
+      <button onClick={handleEdit} className='border-2 border-black'>Edit</button>
+      <button onClick={handleDelete} className='border-2 border-black'>Delete</button>
     </div>
   )
 }

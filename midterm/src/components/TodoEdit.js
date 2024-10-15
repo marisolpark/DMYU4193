@@ -23,13 +23,13 @@ const TodoEdit = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <label>Title:</label>
-      <input type="text" onChange={handleChange} value={title} />
-      <select onChange={handleDropdownChange} value={urgencyTag}>
+      <input type="text" onChange={handleChange} value={title} className='border-2 border-black'/>
+      <select onChange={handleDropdownChange} value={urgencyTag} className='border-2 border-black'>
         <option value='Moderate' selected>Moderate</option>
         <option value='Important'>Important</option>
         <option value='Critical'>Critical</option>
       </select>
-      <button>Update</button>
+      <button className='border-2 border-black'>Update</button>
     </form>
   )
 }

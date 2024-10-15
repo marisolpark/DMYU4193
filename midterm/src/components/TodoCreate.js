@@ -6,7 +6,7 @@ const TodoCreate = () => {
 
   const [title, setTitle] = useState('')
   const [urgencyTag, setUrgencyTag] = useState('Moderate')
-
+ 
   const handleChange = (event) => {
     setTitle(event.target.value)
   }
@@ -26,13 +26,13 @@ const TodoCreate = () => {
     <form onSubmit={handleSubmit}>
       <h1>Task Manager</h1>
       <label>Title:</label>
-      <input type="text" onChange={handleChange} value={title} />
-      <select onChange={handleDropdownChange} value={urgencyTag}>
+      <input type="text" onChange={handleChange} value={title} className='border-2 border-black'/>
+      <select onChange={handleDropdownChange} value={urgencyTag} className='border-2 border-black'>
         <option value='Moderate' selected>Moderate</option>
         <option value='Important'>Important</option>
         <option value='Critical'>Critical</option>
       </select>
-      <button>Add Todo</button>
+      <button className='border-2 border-black'>Add Todo</button>
     </form>
   )
 }
