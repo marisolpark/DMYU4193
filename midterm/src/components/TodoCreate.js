@@ -1,5 +1,7 @@
 import {useState} from 'react'
 import useTodoContext from '../hooks/use-todo-context'
+import {ReactComponent as Plus} from '@material-design-icons/svg/filled/add.svg'
+import {ReactComponent as Work} from '@material-design-icons/svg/filled/work.svg'
 
 const TodoCreate = () => {
   const {createTodo} = useTodoContext()
@@ -23,16 +25,19 @@ const TodoCreate = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Task Manager</h1>
-      <label>Title:</label>
-      <input type="text" onChange={handleChange} value={title} className='border-2 border-black'/>
-      <select onChange={handleDropdownChange} value={urgencyTag} className='border-2 border-black'>
+    <form onSubmit={handleSubmit} className='flex flex-col space-y-2 pb-10'>
+      <h1 className='inline-flex text-3xl text-center underline pb-6 place-content-center'>Task Manager<Work className='size-9'/></h1>
+      <label>I have to ...</label>
+      <input type="text" onChange={handleChange} value={title} className='border-2 border-black rounded'/>
+      <select onChange={handleDropdownChange} value={urgencyTag} className='border-2 border-black rounded'>
         <option value='Moderate' selected>Moderate</option>
         <option value='Important'>Important</option>
         <option value='Critical'>Critical</option>
       </select>
-      <button className='border-2 border-black'>Add Todo</button>
+      <button className='inline-flex buttonStyle rounded place-content-center'>
+        Add task 
+        <Plus className='fill-white'/>
+      </button>
     </form>
   )
 }

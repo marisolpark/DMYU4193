@@ -21,15 +21,15 @@ const TodoEdit = (props) => {
     onSubmit()
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='flex flex-col space-y-2 pb-10'>
       <label>Title:</label>
-      <input type="text" onChange={handleChange} value={title} className='border-2 border-black'/>
-      <select onChange={handleDropdownChange} value={urgencyTag} className='border-2 border-black'>
+      <input type="text" onChange={handleChange} value={title} className='border-2 border-black rounded'/>
+      <select onChange={handleDropdownChange} value={urgencyTag} className='border-2 border-black rounded'>
         <option value='Moderate' selected>Moderate</option>
         <option value='Important'>Important</option>
         <option value='Critical'>Critical</option>
       </select>
-      <button className='border-2 border-black'>Update</button>
+      <button className='buttonStyle rounded'>Update</button>
     </form>
   )
 }
