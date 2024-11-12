@@ -1,33 +1,34 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import SearchBar from '../components/SearchBar';
-import yelp from '../api/yelp'
+import React, { useState } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import SearchBar from '../components/SearchBar'
+import useResults from '../hooks/useResults'
+import ResultsList from '../components/ResultsList'
 
 const SearchScreen = () => {
   const [term, setTerm] = useState('')
-  const [results, setResults] = useState([])
-
-  const searchApi = async () => {
-    const response = await yelp.get('/search', {
-      params: {
-        limit: 50,
-        term: term,
-        location: 'NYC',
-      },
-    })
-    setResults(response.data.buisnesses)
-  }
+  const [searchApi, results, errorMessage] = useResults()
+  console.log(JSON.stringify, results, null, 2)
   return (
     <View>
-      {/* <SearchBar term={term} onTermChange={(newTerm) => setTerm(newTerm) }/> */}
-      {/* here you are not calling a function so () are not needed. However, in this case we do not need to be there is no other thing in the event handler */}
-      {/* ASK!!! - why do we not need the () */}
-      <SearchBar term={term} onTermChange={setTerm} onTermSubmit={searchApi}/>
+      <SearchBar term={term} onTermChange={setTerm} onTermSubmit={() => searchApi(term)}/>
+      {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
       <Text>We found {results.length} results: </Text>
+      <ResultsList title="cheap" results={results}/>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  error: {
+    fontSize: 12,
+    color: 'orangered',
+    fontStyle: 'italic',
+    marginHorizontal: 15,
+  },
+  results: {
+    marginHorizontal: 15,
+    marginTop: 15,
+  }
+});
 
-export default SearchScreen;
+export default SearchScreen
