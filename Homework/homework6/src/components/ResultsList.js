@@ -12,7 +12,7 @@ const ResultsList = (props) => {
         <Text style={styles.noResults}>No results in this price range!</Text>
       ) : (
         <FlatList
-          horizontal 
+          horizontal
           data={results}
           keyExtractor={(result) => {
             return result.id

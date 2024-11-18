@@ -3,7 +3,6 @@ import {Text, ScrollView, StyleSheet} from 'react-native'
 import useResults from '../hooks/useResults'
 import SearchBar from '../components/SearchBar'
 import ResultsList from '../components/ResultsList'
-// import yelp from '../api/yelp'
 // import {buinesses} from '../api/businesses'
 
 const SearchScreen = () => {

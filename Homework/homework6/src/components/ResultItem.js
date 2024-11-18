@@ -9,7 +9,7 @@ const ResultItem = (props) => {
       <Image source={{uri: result.image_url}} style={styles.img} />
       <Text style={styles.rating}>
         {result.rating} Stars, {result.review_count} Reviews
-      </Text> 
+      </Text>
     </View>
   )
 }

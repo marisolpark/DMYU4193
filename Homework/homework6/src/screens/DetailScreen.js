@@ -1,5 +1,5 @@
-import React, {useState, useEffect, Image, FlatList} from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import React, {useState, useEffect} from 'react'
+import {StyleSheet, Text, View, Image, FlatList} from 'react-native'
 
 import yelp from '../api/yelp'
 
@@ -19,32 +19,37 @@ const DetailScreen = (props) => {
     }
   }
 
-  // use effect with empty [] second argumement to avoid loop, and only call once on mount
   useEffect(() => {
     getResult(id)
   }, [])
 
   return (
     <View>
-      {/* <Text>Detail Screen</Text> */}
       <Text>{result && result.name}</Text>
+      <Image source={{uri: result && result.image_url}} style={styles.img}/>
       <Text>Star Rating: {result && result.rating}</Text>
       <Text>Price Range: {result && result.price}</Text>
       <Text>Address: {result && result.location.display_address[0]} {result && result.location.display_address[1]} </Text>
       <Text>Images:</Text>
-      {/* <Image source={{uri: 'https://s3-media2.fl.yelpcdn.com/bphoto/1aoNc-cMmBY-BNcflaaHpA/o.jpg'}} /> */}
-      {/* <FlatList
-          horizontal 
-          data={result}
-          renderItem={({item}) => {
-            return <Image source={{uri: item.image_url}} />
-          }}/> */}
-
-      {/* <Text>ID: {id}</Text> */}
+      <FlatList 
+        horizontal
+        data={result && result.photos}
+        keyExtractor={(photo) => photo}
+        renderItem={({item})=>{
+          return <Image source={{ uri: item && item }} style={styles.img}/>
+        }}
+        />
     </View>
   )
 }
 
-export default DetailScreen
+const styles = StyleSheet.create({
+  img: {
+    width: 250,
+    height: 150,
+    borderRadius: 5,
+    marginBottom: 5,
+  },
+})
 
-const styles = StyleSheet.create({})
+export default DetailScreen
