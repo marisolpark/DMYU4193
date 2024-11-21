@@ -1,0 +1,25 @@
+TODO list brainstor:
+- Who is the target audience?
+    University students
+
+- What are university students want and needs? (based on some interviews with 4 NYU students)
+        - some sort indicator when a task is high priority
+        - some sort of indicator regarding how hard a task is 
+        - capability of making lists ahead of time (for weeks, months)
+        - Capability to have multiple lists for different kinds of tasks (work, school, social life, misellenious)
+        - being able to have tasks that repeate automatically
+        - has the capability to nest and/or link lists
+        - being able to see more than one todo day at a time
+        - lisks of tasks with no deadline that the users can approach it little by little in their free time
+        - Optional reminders based on urgency
+        - if something in a daily list does not get done in the day, it gets pushed to the next days list
+
+- initial ideas:
+    - Will have an easy to access to the day's todo list
+    - have a priority tag 
+    - have a "hardness" level tag 
+    - have a list type tag and filter
+    - have tabs for each week where the user can view the todo lists of the whole week
+    - having the capability to set up reoccuring tasks
+    - functionality which automatically pushes unfinished/unchecked tasks to the next day and marks them as overdue
+    - rewards system which praces you for succesfully compleating x number of tasts

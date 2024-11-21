@@ -1,0 +1,4 @@
+/* for this project we are also using this library: https://tailwindcss.com/docs/guides/create-react-app */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
