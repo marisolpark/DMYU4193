@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Post from DB",
+      "content": "Some placeholder description text"
+    },
+    {
+      "id": "01fa",
+      "title": "Hi",
+      "content": "Hello"
+    },
+    {
+      "id": "efbb",
+      "title": "Hi",
+      "content": "Hello"
+    },
+    {
+      "id": "2373",
+      "title": "Trying New Thungs",
+      "content": "Heloioo"
+    },
+    {
+      "id": "980a",
+      "title": "Yooo",
+      "content": "How are you"
+    }
+  ]
+}
