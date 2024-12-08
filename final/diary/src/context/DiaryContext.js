@@ -51,10 +51,10 @@ const deleteDiaryPost = (dispatch) => {
 }
 
 const editDiaryPost = (dispatch) => {
-  return async (id, title, movieDescription, callback) => {
+  return async (id, title, movieDescription, movieThoughts, callback) => {
     try {
-      await jsonServer.put(`/posts/${id}`, {title, movieDescription})
-      dispatch({type: 'edit_post', payload: {id, title, movieDescription}})
+      await jsonServer.put(`/posts/${id}`, {title, movieDescription, movieThoughts})
+      dispatch({type: 'edit_post', payload: {id, title, movieDescription, movieThoughts}})
       if (callback) {
         callback()
       }
