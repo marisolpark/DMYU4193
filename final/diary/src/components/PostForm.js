@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native'
+import StarRating from '../components/StarRating'
 
 const PostForm = ({onSubmit, inititalValues = {title: '', movieDescription: '', movieThoughts:''}}) => {
   const [title, setTitle] = useState(inititalValues.title)
@@ -34,6 +35,7 @@ const PostForm = ({onSubmit, inititalValues = {title: '', movieDescription: '', 
         value={movieThoughts}
         onChangeText={(text) => setMovieThoughts(text)}
       />
+      <StarRating />
       <Button
         title="Save Post"
         onPress={() => {
