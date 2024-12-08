@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import {Context} from '../context/DiaryContext'
+import { StarRatingDisplay } from '../components/StarRating'
 
 const IndexScreen = ({navigation}) => {
   const {state, deleteDiaryPost, getDiaryPosts} = useContext(Context)
@@ -18,6 +19,7 @@ const IndexScreen = ({navigation}) => {
 
   return (
     <View>
+      <Text style={styles.title}>Your Movie Reviews</Text>
       <FlatList
         data={state}
         keyExtractor={(post) => post.id}
@@ -27,6 +29,7 @@ const IndexScreen = ({navigation}) => {
           >
             <View style={styles.row}>
               <Text style={styles.title}>{item.title}</Text>
+              <StarRatingDisplay rating={item.rating}/>
               <TouchableOpacity onPress={() => deleteDiaryPost(item.id)}>
                 <MaterialIcons name="delete" size={24} color="#333" />
               </TouchableOpacity>

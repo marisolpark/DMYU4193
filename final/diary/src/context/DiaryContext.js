@@ -29,9 +29,9 @@ const getDiaryPosts = (dispatch) => {
 }
 
 const addDiaryPost = (dispatch) => {
-  return async (title, movieDescription, movieThoughts, callback) => {
+  return async (title, movieDescription, movieThoughts, rating, callback) => {
     try {
-      const response = await jsonServer.post('/posts', {title, movieDescription, movieThoughts})
+      const response = await jsonServer.post('/posts', {title, movieDescription, movieThoughts, rating})
       if (callback) {callback()}
     } catch (err) {
       console.log("ERROR: feiled at adding new post")
@@ -51,10 +51,10 @@ const deleteDiaryPost = (dispatch) => {
 }
 
 const editDiaryPost = (dispatch) => {
-  return async (id, title, movieDescription, movieThoughts, callback) => {
+  return async (id, title, movieDescription, movieThoughts, rating, callback) => {
     try {
-      await jsonServer.put(`/posts/${id}`, {title, movieDescription, movieThoughts})
-      dispatch({type: 'edit_post', payload: {id, title, movieDescription, movieThoughts}})
+      await jsonServer.put(`/posts/${id}`, {title, movieDescription, movieThoughts, rating})
+      dispatch({type: 'edit_post', payload: {id, title, movieDescription, movieThoughts, rating}})
       if (callback) {
         callback()
       }

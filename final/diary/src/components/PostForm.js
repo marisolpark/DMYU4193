@@ -2,10 +2,11 @@ import React, {useState} from 'react'
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native'
 import StarRating from '../components/StarRating'
 
-const PostForm = ({onSubmit, inititalValues = {title: '', movieDescription: '', movieThoughts:''}}) => {
+const PostForm = ({onSubmit, inititalValues = {title: '', movieDescription: '', movieThoughts:'', rating:0}}) => {
   const [title, setTitle] = useState(inititalValues.title)
   const [movieDescription, setMovieDescription] = useState(inititalValues.movieDescription)
   const [movieThoughts, setMovieThoughts] = useState(inititalValues.movieThoughts)
+  const [rating, setRating] = useState(inititalValues.rating)
 
   return (
     <View>
@@ -35,11 +36,11 @@ const PostForm = ({onSubmit, inititalValues = {title: '', movieDescription: '', 
         value={movieThoughts}
         onChangeText={(text) => setMovieThoughts(text)}
       />
-      <StarRating />
+      <StarRating rating={rating} setRating={setRating}/>
       <Button
         title="Save Post"
         onPress={() => {
-          onSubmit(title, movieDescription, movieThoughts)
+          onSubmit(title, movieDescription, movieThoughts, rating)
         }}
       />
     </View>

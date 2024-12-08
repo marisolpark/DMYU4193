@@ -1,10 +1,18 @@
 {
   "posts": [
     {
-      "title": "Titleeee",
-      "movieDescription": "Vwry very looooooong description ",
-      "movieThoughts": "This are my thoughts….are that thsi is working",
-      "id": "a9c7"
+      "title": "V",
+      "movieDescription": "V",
+      "movieThoughts": "H",
+      "rating": 2,
+      "id": "d0eb"
+    },
+    {
+      "title": "Movie Name",
+      "movieDescription": "Description",
+      "movieThoughts": "It was okay ",
+      "rating": 2,
+      "id": "2075"
     }
   ]
 }

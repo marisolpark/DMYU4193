@@ -12,9 +12,9 @@ const EditScreen = ({navigation}) => {
 
   return (
     <PostForm
-      inititalValues={{title: post.title, movieDescription: post.movieDescription, movieThoughts: post.movieThoughts}}
-      onSubmit={(title, movieDescription, movieThoughts) => {
-        editDiaryPost(id, title, movieDescription, movieThoughts, () =>
+      inititalValues={{title: post.title, movieDescription: post.movieDescription, movieThoughts: post.movieThoughts, rating: post.rating}}
+      onSubmit={(title, movieDescription, movieThoughts, raiting) => {
+        editDiaryPost(id, title, movieDescription, movieThoughts, raiting, () =>
           navigation.navigate('View', {id: id})
         )
       }}

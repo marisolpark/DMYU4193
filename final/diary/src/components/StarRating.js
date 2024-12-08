@@ -1,30 +1,34 @@
-
-{/* <FontAwesome name="star" size={24} color="black" /> */}
-{/* <FontAwesome name="star-o" size={24} color="black" /> */}
-
-import React, {useState} from 'react'
+import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import StarIcon from './StarIcon'
 
-const StarRating = () => {
-    const [currentState, setCurretState] = useState(0)
+const StarRating = (props) => {
+    const {rating, setRating} = props
   return (
     <View>
-      {/* <Text>Movie rating</Text>
-      <View style={styles.starLayout}>
-        <StarIcon isFilled={false} />
-        <StarIcon isFilled={true}/>
-      </View> */}
       <View style={styles.starLayout}>
             {Array.from({ length: 5 },(_,index) => (
-                <TouchableOpacity key={index} onPress={() => setCurretState(index + 1)}>
-                    <StarIcon isFilled={index < currentState} />
+                <TouchableOpacity key={index} onPress={() => setRating(index + 1)}>
+                    <StarIcon isFilled={index < rating} />
                 </TouchableOpacity>
             ))}
         </View>
     </View>
   )
 }
+
+const StarRatingDisplay = ({rating}) => {
+    return (
+        <View>
+          <View style={styles.starLayout}>
+                {Array.from({ length: 5 },(_,index) => (
+                    <StarIcon key={index} isFilled={index < rating} />
+                ))}
+            </View>
+        </View>
+      )
+    }
+
 
 const styles = StyleSheet.create({
     starLayout: {
@@ -33,4 +37,5 @@ const styles = StyleSheet.create({
     }
 })
 export default StarRating
+export {StarRatingDisplay}
 

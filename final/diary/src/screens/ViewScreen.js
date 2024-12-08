@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
 import {Context} from '../context/DiaryContext'
+import { StarRatingDisplay } from '../components/StarRating'
 
 const ViewScreen = ({navigation}) => {
   const {state} = useContext(Context)
@@ -17,6 +18,7 @@ const ViewScreen = ({navigation}) => {
       </Text>
       <Text>{post.movieDescription}</Text>
       <Text>{post.movieThoughts}</Text>
+      <StarRatingDisplay rating={post.rating}/>
     </View>
   )
 }
