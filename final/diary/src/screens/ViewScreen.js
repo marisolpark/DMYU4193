@@ -4,7 +4,6 @@ import FontAwesome from '@expo/vector-icons/FontAwesome'
 import {Context} from '../context/DiaryContext'
 
 const ViewScreen = ({navigation}) => {
-  // const id = navigation.getParam('id')
   const {state} = useContext(Context)
 
   const post = state.find(
@@ -16,7 +15,8 @@ const ViewScreen = ({navigation}) => {
       <Text>
         {post.title} - {post.id}
       </Text>
-      <Text>{post.content}</Text>
+      <Text>{post.movieDescription}</Text>
+      <Text>{post.movieThoughts}</Text>
     </View>
   )
 }

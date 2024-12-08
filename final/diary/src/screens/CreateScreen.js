@@ -8,8 +8,8 @@ const CreateScreen = ({navigation}) => {
 
   return (
     <PostForm
-      onSubmit={(title, content) => {
-        addDiaryPost(title, content, () => navigation.navigate('Index'))
+      onSubmit={(title, movieDescription, movieThoughts) => {
+        addDiaryPost(title, movieDescription, movieThoughts, () => navigation.navigate('Index'))
       }}
     />
   )

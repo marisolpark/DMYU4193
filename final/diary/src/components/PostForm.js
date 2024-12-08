@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native'
 
-const PostForm = ({onSubmit, inititalValues = {title: '', content: ''}}) => {
+const PostForm = ({onSubmit, inititalValues = {title: '', movieDescription: '', movieThoughts:''}}) => {
   const [title, setTitle] = useState(inititalValues.title)
-  const [content, setContent] = useState(inititalValues.content)
+  const [movieDescription, setMovieDescription] = useState(inititalValues.movieDescription)
+  const [movieThoughts, setMovieThoughts] = useState(inititalValues.movieThoughts)
 
   return (
     <View>
@@ -15,17 +16,28 @@ const PostForm = ({onSubmit, inititalValues = {title: '', content: ''}}) => {
         value={title}
         onChangeText={(text) => setTitle(text)}
       />
-      <Text style={styles.label}>Content:</Text>
+      <Text style={styles.label}>Movie description:</Text>
       <TextInput
+        autoCapitalize="sentences"
         autoCorrect={false}
+        multiline={true}
         style={styles.input}
-        value={content}
-        onChangeText={(text) => setContent(text)}
+        value={movieDescription}
+        onChangeText={(text) => setMovieDescription(text)}
+      />
+      <Text style={styles.label}>Your thoughts on the movie:</Text>
+      <TextInput
+        autoCapitalize="sentences"
+        autoCorrect={false}
+        multiline={true}
+        style={styles.input}
+        value={movieThoughts}
+        onChangeText={(text) => setMovieThoughts(text)}
       />
       <Button
         title="Save Post"
         onPress={() => {
-          onSubmit(title, content)
+          onSubmit(title, movieDescription, movieThoughts)
         }}
       />
     </View>

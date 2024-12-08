@@ -1,24 +1,10 @@
 {
   "posts": [
     {
-      "id": "1",
-      "title": "Post from DB",
-      "content": "Some placeholder description text"
-    },
-    {
-      "id": "efbb",
-      "title": "Hi",
-      "content": "Hello"
-    },
-    {
-      "id": "2373",
-      "title": "Trying New Thungs",
-      "content": "Heloioo"
-    },
-    {
-      "id": "980a",
-      "title": "Yooo",
-      "content": "How are you"
+      "id": "a9c7",
+      "title": "Title",
+      "movieDescription": "Vwry very short description ",
+      "movieThoughts": "This are my thoughts…."
     }
   ]
 }

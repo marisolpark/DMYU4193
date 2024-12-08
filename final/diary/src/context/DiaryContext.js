@@ -18,34 +18,48 @@ const postReducer = (state, action) => {
 
 const getDiaryPosts = (dispatch) => {
   return async() => {
-    // FOR FINAL - add atry catch --> should only dispatch after the data for response has arrived. Example in yelp project
-    const response = await jsonServer.get('posts')
-    dispatch({type: 'get_posts', payload: response.data})
+    try {
+      const response = await jsonServer.get('posts')
+      dispatch({type: 'get_posts', payload: response.data})
+    } catch (err) {
+      console.log("ERROR: feiled at getting posts")
+    }
+
   }
 }
 
 const addDiaryPost = (dispatch) => {
-  return async (title, content, callback) => {
-    const response = await jsonServer.post('/posts', {title, content})
-    if (callback) {
-      callback()
+  return async (title, movieDescription, movieThoughts, callback) => {
+    try {
+      const response = await jsonServer.post('/posts', {title, movieDescription, movieThoughts})
+      if (callback) {callback()}
+    } catch (err) {
+      console.log("ERROR: feiled at adding new post")
     }
   }
 }
 
 const deleteDiaryPost = (dispatch) => {
   return async (id) => {
-    const response = await jsonServer.delete(`/posts/${id}`)
-    dispatch({type: 'delete_post', payload: id})
+    try {
+      const response = await jsonServer.delete(`/posts/${id}`)
+      dispatch({type: 'delete_post', payload: id})
+    } catch (err) {
+      console.log("ERROR: feiled at deleting post")
+    }
   }
 }
 
 const editDiaryPost = (dispatch) => {
-  return async (id, title, content, callback) => {
-    await sonServer.put(`/posts/${id}`, {title, content})
-    dispatch({type: 'edit_post', payload: {id, title, content}})
-    if (callback) {
-      callback()
+  return async (id, title, movieDescription, callback) => {
+    try {
+      await jsonServer.put(`/posts/${id}`, {title, movieDescription})
+      dispatch({type: 'edit_post', payload: {id, title, movieDescription}})
+      if (callback) {
+        callback()
+      }
+    } catch (err) {
+      console.log("ERROR: feiled at editing post")
     }
   }
 }
