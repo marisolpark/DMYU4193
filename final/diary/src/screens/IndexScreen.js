@@ -1,14 +1,15 @@
-import React, {useContext, useEffect} from 'react'
-import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native'
+import React, {useContext, useEffect, useState} from 'react'
+import {StyleSheet, Text, View, FlatList, TouchableOpacity, ScrollView} from 'react-native'
 import {Context} from '../context/DiaryContext'
 import { StarRatingDisplay } from '../components/StarRating'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 
 const IndexScreen = ({navigation}) => {
-  const {state, deleteDiaryPost, getDiaryPosts, getDiaryPostFilter} = useContext(Context)
-
+  const {state, deleteDiaryPost, getDiaryPosts} = useContext(Context)
   //useState that saves and updates the selected filter based on the selected button
-  // const [filter, setFilter] = useState("none")
+  const [filter, setFilter] = useState("none")
+  //useState that saves and updates the posts filtered by rating based on the selected button
+  const [filterResults, setFilterResults] = useState(state)
 
   //filter options for all the different filter buttons
   const filterOptions = [
@@ -23,36 +24,40 @@ const IndexScreen = ({navigation}) => {
 
   useEffect(() => {
     getDiaryPosts()
-    const listener = navigation.addListener('didFocus', () => {
-      // getDiaryPostFilter(filter)
-      getDiaryPosts()
-    })
-    return () => {
-      listener.remove()
-    }
+    const listener = navigation.addListener('didFocus', () => {getDiaryPosts()})
+    return () => {listener.remove()}
   }, [])
 
-  //helper function that calls for setFilter() and getDiaryPostFinter based on the selected filter button
-  // const handleFilterClick = (filterValue) => {
-  //   // setFilter(filterValue)
-  //   getDiaryPostFilter(filterValue)
-  // }
+  useEffect(() => {setFilterResults(state)}, [state]);
+
+  //helper function that filters thorough the movie posts to get the ones matching with the selected rating button
+  const handleRatingFilterClick = (filterValue) => {
+    setFilter(filterValue)
+    if (filterValue == "none") {
+      setFilterResults(state)
+    } else {
+      const ratingPosts = state.filter((movie) => movie.rating === filterValue)
+      setFilterResults(ratingPosts)
+    }
+  }
 
   return (
-    <View>
-      <Text style={styles.title}>Your Movie Reviews</Text>
-
+    <View style={styles.backgroundContainer}>
     {/* prints out the different button filter options based on the objects in filterOptions */}
+    <View style={styles.filtersContainer}>
       {filterOptions.map((filterOption, index) => (
-        // the onPress event defined in each button calls for getDiaryPostFilter for the specific selected 
-        // button which prints out the posts that have a matching rating.
-        <TouchableOpacity key={index} onPress={() => getDiaryPostFilter(filterOption.value)}>
-          <Text>{filterOption.lable}</Text>
-        </TouchableOpacity>
-      ))}
-
+          // the onPress event defined in each button calls for handleRatingFilterClick function to get the 
+          // specific selected button which prints out the posts that have a matching rating.
+          <TouchableOpacity key={index} 
+          onPress={() => handleRatingFilterClick(filterOption.value)} 
+          style={[styles.buttonGeneral, filter === filterOption.value ? styles.buttonPress : styles.buttonNoPress]}>
+            <Text>{filterOption.lable}</Text>
+          </TouchableOpacity>
+        ))}
+    </View>
+      
       <FlatList
-        data={state}
+        data={filterResults}
         keyExtractor={(post) => post.id}
         renderItem={({item}) => (
           <TouchableOpacity
@@ -90,6 +95,11 @@ IndexScreen.navigationOptions = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
+  backgroundContainer: {
+    backgroundColor: "black",
+    flex: 1,
+    padding: 20,
+  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -100,10 +110,27 @@ const styles = StyleSheet.create({
     borderColor: '#666',
   },
   title: {
-    fontSize: 18,
+    fontSize: 25,
+    color: "white",
   },
   addIcon: {
     marginRight: 10,
+  },
+  filtersContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  buttonGeneral: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 15,
+  },
+  buttonNoPress: {
+    backgroundColor: "#2F2F2F",
+  },
+  buttonPress: {
+    backgroundColor: "#FFCC01",
   },
 })
 

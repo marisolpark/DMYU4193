@@ -8,8 +8,8 @@ const StarIcon = (props) => {
     return (
         <View>
             {isFilled ? 
-            <FontAwesome name="star" size={50} color="black" /> :
-            <FontAwesome name="star-o" size={50} color="black" />
+            <FontAwesome name="star" size={30} color="#f5ba00" /> :
+            <FontAwesome name="star-o" size={30} color="#f5ba00" />
             }
         </View>
     )

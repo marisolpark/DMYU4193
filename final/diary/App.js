@@ -5,7 +5,6 @@ import IndexScreen from './src/screens/IndexScreen'
 import ViewScreen from './src/screens/ViewScreen'
 import CreateScreen from './src/screens/CreateScreen'
 import EditScreen from './src/screens/EditScreen'
-// renaming a generic import to something more specific
 import {Provider as DiaryProvider} from './src/context/DiaryContext'
 
 const navigator = createStackNavigator(
@@ -18,7 +17,7 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'Index',
     defaultNavigationOptions: {
-      title: 'Diary',
+      title: 'My Movie Reviews',
     },
   }
 )
