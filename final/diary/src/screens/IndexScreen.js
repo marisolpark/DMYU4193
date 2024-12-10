@@ -1,15 +1,27 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {StyleSheet, Text, View, FlatList, TouchableOpacity} from 'react-native'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import {Context} from '../context/DiaryContext'
 import { StarRatingDisplay } from '../components/StarRating'
 
 const IndexScreen = ({navigation}) => {
-  const {state, deleteDiaryPost, getDiaryPosts} = useContext(Context)
+  const {state, deleteDiaryPost, getDiaryPosts, getDiaryPostFilter} = useContext(Context)
+  const [filter, setFilter] = useState("none")
+
+  const filterOptions = [
+    {lable: 'All', value: "none"},
+    {lable: '5 Start', value: 5},
+    {lable: '4 Start', value: 4},
+    {lable: '3 Start', value: 3},
+    {lable: '2 Start', value: 2},
+    {lable: '1 Start', value: 1},
+    {lable: '0 Start', value: 0},
+  ]
 
   useEffect(() => {
     getDiaryPosts()
     const listener = navigation.addListener('didFocus', () => {
+      // getDiaryPostFilter(filter)
       getDiaryPosts()
     })
     return () => {
@@ -17,9 +29,20 @@ const IndexScreen = ({navigation}) => {
     }
   }, [])
 
+  const handleFilterClick = (filterValue) => {
+    setFilter(filterValue)
+    getDiaryPostFilter(filterValue)
+  }
+
   return (
     <View>
       <Text style={styles.title}>Your Movie Reviews</Text>
+      
+      {filterOptions.map((filterOption, index) => (
+        <TouchableOpacity key={index} onPress={() => handleFilterClick(filterOption.value)}>
+          <Text>{filterOption.lable}</Text>
+        </TouchableOpacity>
+      ))}
       <FlatList
         data={state}
         keyExtractor={(post) => post.id}

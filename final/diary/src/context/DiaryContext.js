@@ -5,6 +5,8 @@ const postReducer = (state, action) => {
   switch (action.type) {
     case 'get_posts': 
       return action.payload
+    // case 'get_filter':
+    //   return action.payload
     case 'delete_post':
       return state.filter((post) => post.id !== action.payload)
     case 'edit_post':
@@ -25,6 +27,18 @@ const getDiaryPosts = (dispatch) => {
       console.log("ERROR: feiled at getting posts")
     }
 
+  }
+}
+
+const getDiaryPostFilter = (dispatch) => {
+  return async (value) => {
+    try {
+      const posts = await jsonServer.get('posts')
+      const response = value == "none" ? posts.data : posts.data.filter((post) => post.rating === value)
+      dispatch({type: 'get_posts', payload: response})
+    } catch (err) {
+      console.log("ERROR: feiled at getting filtered posts")
+    }
   }
 }
 
@@ -71,6 +85,7 @@ export const {Context, Provider} = createDataContext(
     addDiaryPost,
     deleteDiaryPost,
     editDiaryPost,
+    getDiaryPostFilter,
   },
   []
 )
