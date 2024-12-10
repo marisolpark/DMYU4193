@@ -17,7 +17,9 @@ const ViewScreen = ({navigation}) => {
         {post.title} - {post.id}
       </Text>
       <Text>{post.movieDescription}</Text>
+      {/* added the moviethoughts */}
       <Text>{post.movieThoughts}</Text>
+      {/* added another instance of the  StarRatingDisplay component*/}
       <StarRatingDisplay rating={post.rating}/>
     </View>
   )

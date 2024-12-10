@@ -30,6 +30,8 @@ const getDiaryPosts = (dispatch) => {
   }
 }
 
+//this helper function calls for all of the posts and filters thought them. 
+//It only returns the results that have a rating matching to to the value it recieves from the Index.js file button
 const getDiaryPostFilter = (dispatch) => {
   return async (value) => {
     try {
@@ -42,7 +44,8 @@ const getDiaryPostFilter = (dispatch) => {
   }
 }
 
-const addDiaryPost = (dispatch) => {
+//added movieThoughts and rating as one of the recieved values so that they could be added to our database
+const addDiaryPost = () => {
   return async (title, movieDescription, movieThoughts, rating, callback) => {
     try {
       const response = await jsonServer.post('/posts', {title, movieDescription, movieThoughts, rating})
@@ -64,6 +67,7 @@ const deleteDiaryPost = (dispatch) => {
   }
 }
 
+//added movieThoughts and rating as one of the recieved values so that they could be added to our database
 const editDiaryPost = (dispatch) => {
   return async (id, title, movieDescription, movieThoughts, rating, callback) => {
     try {
@@ -78,6 +82,7 @@ const editDiaryPost = (dispatch) => {
   }
 }
 
+//added the new helper function getDiaryPostFilter-
 export const {Context, Provider} = createDataContext(
   postReducer,
   {

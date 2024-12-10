@@ -7,6 +7,7 @@ const CreateScreen = ({navigation}) => {
   const {addDiaryPost} = useContext(Context)
 
   return (
+    // added movieThoughts and rating so they are passed to the addDiaryPost and passed to the database to be saved
     <PostForm
       onSubmit={(title, movieDescription, movieThoughts, rating) => {
         addDiaryPost(title, movieDescription, movieThoughts, rating, () => navigation.navigate('Index'))
