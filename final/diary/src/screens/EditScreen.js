@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {StyleSheet} from 'react-native'
-import PostForm from '../components/PostForm'
 import {Context} from '../context/DiaryContext'
+import PostForm from '../components/PostForm'
 
 const EditScreen = ({navigation}) => {
   const id = navigation.getParam('id')
@@ -11,8 +11,6 @@ const EditScreen = ({navigation}) => {
   )
 
   return (
-      // added movieThoughts and rating so they are passed to the editDiaryPost, edited, 
-      //and passed to the database to be saved
     <PostForm
       inititalValues={{title: post.title, movieDescription: post.movieDescription, movieThoughts: post.movieThoughts, rating: post.rating}}
       onSubmit={(title, movieDescription, movieThoughts, raiting) => {

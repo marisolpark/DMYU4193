@@ -27,7 +27,6 @@ const getDiaryPosts = (dispatch) => {
   };
 };
 
-//added movieThoughts and rating as one of the recieved values so that they could be added to our database
 const addDiaryPost = () => {
   return async (title, movieDescription, movieThoughts, rating, callback) => {
     try {
@@ -50,7 +49,6 @@ const deleteDiaryPost = (dispatch) => {
   }
 }
 
-//added movieThoughts and rating as one of the recieved values so that they could be added to our database
 const editDiaryPost = (dispatch) => {
   return async (id, title, movieDescription, movieThoughts, rating, callback) => {
     try {
