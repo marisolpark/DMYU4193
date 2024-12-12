@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, FlatList, TouchableOpacity, ScrollView} from 're
 import {Context} from '../context/DiaryContext'
 import { StarRatingDisplay } from '../components/StarRating'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
+import FontAwesome from '@expo/vector-icons/FontAwesome'
 
 const IndexScreen = ({navigation}) => {
   const {state, deleteDiaryPost, getDiaryPosts} = useContext(Context)
@@ -14,12 +15,12 @@ const IndexScreen = ({navigation}) => {
   //filter options for all the different filter buttons
   const filterOptions = [
     {lable: 'All', value: "none"},
-    {lable: '5 Start', value: 5},
-    {lable: '4 Start', value: 4},
-    {lable: '3 Start', value: 3},
-    {lable: '2 Start', value: 2},
-    {lable: '1 Start', value: 1},
-    {lable: '0 Start', value: 0},
+    {lable: <><Text>5 </Text><FontAwesome name="star" size={18} color="white"/></>, value: 5},
+    {lable: <><Text>4 </Text><FontAwesome name="star" size={18} color="white"/></>, value: 4},
+    {lable: <><Text>3 </Text><FontAwesome name="star" size={18} color="white"/></>, value: 3},
+    {lable: <><Text>2 </Text><FontAwesome name="star" size={18} color="white"/></>, value: 2},
+    {lable: <><Text>1 </Text><FontAwesome name="star" size={18} color="white"/></>, value: 1},
+    {lable: <><Text>0 </Text><FontAwesome name="star" size={18} color="white"/></>, value: 0},
   ]
 
   useEffect(() => {
@@ -51,7 +52,7 @@ const IndexScreen = ({navigation}) => {
           <TouchableOpacity key={index} 
           onPress={() => handleRatingFilterClick(filterOption.value)} 
           style={[styles.buttonGeneral, filter === filterOption.value ? styles.buttonPress : styles.buttonNoPress]}>
-            <Text>{filterOption.lable}</Text>
+            <Text style={filter === filterOption.value ? styles.buttonTextPressed : styles.buttonTextNopress}>{filterOption.lable}</Text>
           </TouchableOpacity>
         ))}
     </View>
@@ -63,13 +64,15 @@ const IndexScreen = ({navigation}) => {
           <TouchableOpacity
             onPress={() => navigation.navigate('View', {id: item.id})}
           >
-            <View style={styles.row}>
-              <Text style={styles.title}>{item.title}</Text>
-              {/* instance of the StarRatingDisplay component that I made which only displays the number of 
-              starts that a movie posts has. This is a custom component that can be found in the components folder */}
-              <StarRatingDisplay rating={item.rating}/>
+            <View style={styles.postRow}>
+              <View>
+                <Text style={styles.title}>{item.title}</Text>
+                {/* instance of the StarRatingDisplay component that I made which only displays the number of 
+                starts that a movie posts has. This is a custom component that can be found in the components folder */}
+                <StarRatingDisplay rating={item.rating}/>
+              </View>
               <TouchableOpacity onPress={() => deleteDiaryPost(item.id)}>
-                <MaterialIcons name="delete" size={24} color="#333" />
+                <MaterialIcons name="delete" size={40} color="#333" />
               </TouchableOpacity>
             </View>
           </TouchableOpacity>
@@ -96,22 +99,9 @@ IndexScreen.navigationOptions = ({navigation}) => {
 
 const styles = StyleSheet.create({
   backgroundContainer: {
-    backgroundColor: "black",
+    backgroundColor: "#0F0F0F",
     flex: 1,
     padding: 20,
-  },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 10,
-    marginBottom: 5,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: '#666',
-  },
-  title: {
-    fontSize: 25,
-    color: "white",
   },
   addIcon: {
     marginRight: 10,
@@ -120,17 +110,38 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    marginBottom: 30,
   },
   buttonGeneral: {
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 15,
   },
+  buttonTextNopress: {
+    color: "white"
+  },
+  buttonTextPressed: {
+    color: "black"
+  },
   buttonNoPress: {
     backgroundColor: "#2F2F2F",
   },
   buttonPress: {
     backgroundColor: "#FFCC01",
+  },
+  postRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20,
+    marginBottom: 5,
+    borderBottomWidth: 1,
+    borderColor: '#303030',
+  },
+  title: {
+    fontSize: 25,
+    color: "white",
+    marginBottom: 5,
   },
 })
 

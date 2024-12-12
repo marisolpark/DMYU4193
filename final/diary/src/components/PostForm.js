@@ -10,7 +10,7 @@ const PostForm = ({onSubmit, inititalValues = {title: '', movieDescription: '', 
   const [rating, setRating] = useState(inititalValues.rating)
 
   return (
-    <View>
+    <View style={styles.backgroundContainer}>
       <Text style={styles.label}>Title:</Text>
       <TextInput
         autoCapitalize="words"
@@ -53,18 +53,29 @@ const PostForm = ({onSubmit, inititalValues = {title: '', movieDescription: '', 
 }
 
 const styles = StyleSheet.create({
+  backgroundContainer: {
+    backgroundColor: "#0F0F0F",
+    flex: 1,
+    padding: 20,
+    gap: 10,
+  },
+  textColor: {
+    color: "white",
+  },
   label: {
     fontSize: 20,
     margin: 10,
-    marginBottom: 5,
+    marginBottom: 0,
+    color: "white",
   },
   input: {
     fontSize: 18,
     borderWidth: 1,
-    borderColor: '#666',
+    borderColor: '#6C6C6C',
     marginHorizontal: 10,
-    marginVertical: 5,
     borderRadius: 5,
+    color: "white",
+    paddingVertical: 4,
   },
 })
 

@@ -17,30 +17,15 @@ const postReducer = (state, action) => {
 }
 
 const getDiaryPosts = (dispatch) => {
-  return async() => {
+  return async () => {
     try {
-      const response = await jsonServer.get('posts')
-      dispatch({type: 'get_posts', payload: response.data})
+      const response = await jsonServer.get('/posts');
+      dispatch({ type: 'get_posts', payload: response.data });
     } catch (err) {
       console.log("ERROR: feiled at getting posts")
     }
-
-  }
-}
-
-//this helper function calls for all of the posts and filters thought them. 
-//It only returns the results that have a rating matching to to the value it recieves from the Index.js file button
-// const getDiaryPostFilter = (dispatch) => {
-//   return async (value) => {
-//     try {
-//       const posts = await jsonServer.get('posts')
-//       const response = value == "none" ? posts.data : posts.data.filter((post) => post.rating === value)
-//       dispatch({type: 'get_posts', payload: response})
-//     } catch (err) {
-//       console.log("ERROR: feiled at getting filtered posts")
-//     }
-//   }
-// }
+  };
+};
 
 //added movieThoughts and rating as one of the recieved values so that they could be added to our database
 const addDiaryPost = () => {

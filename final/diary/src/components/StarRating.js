@@ -10,7 +10,7 @@ const StarRating = (props) => {
   return (
     <View>
       <View style={styles.starLayout}>
-        {/* the array prints out 5 StarIcon starts and assigns an inted to each one going from 0-4.
+        {/* the array prints out 5 StarIcon starts and assigns an index to each one going from 0-4.
         Initially, it will print out the stats that match the passed raitning, this might vary depending if it 
         is an edit of creating screen. When a specific star is pressed it triggers the onpress, which will modify 
         the star to it's index + 1 and will cause the filled start number to shift to since it is dependent on 

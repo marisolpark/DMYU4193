@@ -1,81 +1,11 @@
 {
   "posts": [
     {
-      "title": "V",
-      "movieDescription": "V",
-      "movieThoughts": "H",
-      "rating": 2,
-      "id": "d0eb"
-    },
-    {
-      "title": "Movie Name",
-      "movieDescription": "Description",
-      "movieThoughts": "It was okay ",
-      "rating": 2,
-      "id": "2075"
-    },
-    {
-      "title": "Hello Everyone",
-      "movieDescription": "This is the description",
-      "movieThoughts": "This are my thought ",
-      "rating": 1,
-      "id": "7158"
-    },
-    {
-      "id": "e2eb",
-      "title": "",
-      "movieDescription": "",
-      "movieThoughts": "",
-      "rating": 2
-    },
-    {
-      "id": "dd44",
-      "title": "Hello",
-      "movieDescription": "This is a test",
-      "movieThoughts": "Testinggg",
-      "rating": 5
-    },
-    {
-      "id": "8013",
-      "title": "TESTTTTT",
-      "movieDescription": "",
-      "movieThoughts": "",
-      "rating": 5
-    },
-    {
-      "title": "Testing Twsting",
-      "movieDescription": "",
-      "movieThoughts": "",
-      "rating": 2,
-      "id": "cc7e"
-    },
-    {
-      "id": "da33",
-      "title": "Movie Name ",
-      "movieDescription": "Desc",
-      "movieThoughts": "Teview",
-      "rating": 4
-    },
-    {
-      "id": "092e",
-      "title": "Hi Everyone",
-      "movieDescription": "",
-      "movieThoughts": "",
-      "rating": 5
-    },
-    {
-      "id": "8959",
-      "title": "Test Number 2",
-      "movieDescription": "",
-      "movieThoughts": "",
-      "rating": 1
-    },
-    {
-      "id": "acce",
-      "title": "Test 3",
-      "movieDescription": "",
-      "movieThoughts": "",
-      "rating": 4
+      "title": "Hiiii, ",
+      "movieDescription": "Yhis is tge movie wikers ",
+      "movieThoughts": "Tatatatat",
+      "rating": 5,
+      "id": "03ef"
     }
   ]
 }

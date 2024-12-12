@@ -12,15 +12,19 @@ const ViewScreen = ({navigation}) => {
   )
 
   return (
-    <View>
-      <Text>
-        {post.title} - {post.id}
-      </Text>
-      <Text>{post.movieDescription}</Text>
-      {/* added the moviethoughts */}
-      <Text>{post.movieThoughts}</Text>
-      {/* added another instance of the  StarRatingDisplay component*/}
+    <View style={styles.backgroundContainer}>
+      <Text style={[styles.textColor, styles.title]}>{post.title}</Text>
       <StarRatingDisplay rating={post.rating}/>
+      <View>
+        <Text style={[styles.textColor,styles.bodyLabel]}>Description</Text>
+        <Text style={[styles.textColor,styles.bodyText]}>{post.movieDescription}</Text>
+      </View>
+      <View>
+        {/* added the moviethoughts */}
+        <Text style={[styles.textColor,styles.bodyLabel]}>Opinion</Text>
+        <Text style={[styles.textColor,styles.bodyText]}>{post.movieThoughts}</Text>
+      </View>
+      {/* added another instance of the  StarRatingDisplay component*/}
     </View>
   )
 }
@@ -44,6 +48,25 @@ ViewScreen.navigationOptions = ({navigation}) => {
 const styles = StyleSheet.create({
   editIcon: {
     marginRight: 10,
+  },
+  backgroundContainer: {
+    backgroundColor: "#0F0F0F",
+    flex: 1,
+    padding: 20,
+    gap: 10,
+  },
+  textColor: {
+    color: "white",
+  },
+  title: {
+    fontSize: 30,
+  },
+  bodyLabel: {
+    fontSize:16,
+    fontWeight: "bold",
+  },
+  bodyText: {
+    fontSize: 16,
   },
 })
 
